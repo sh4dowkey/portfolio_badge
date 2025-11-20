@@ -12,7 +12,7 @@ const profileData = {
   name: "Anant Kumar Pandey",
   title: "Cybersecurity Enthusiast",
   email: "anant.pandey017@gmail.com",
-  location: "Jharsuguda, IN",
+  location: "ODISHA ,IN",
   phone: "+91-9337056057",
   linkedin: "https://www.linkedin.com/in/anant-ku-pandey",
   github: "https://github.com/sh4dowkey",
@@ -45,6 +45,7 @@ const commands = {
   help         Show this help message
   about        Bio & professional summary
   whoami       Current user information
+  stats        View your session stats
   
 🛠️ SKILLS & EXPERTISE  
   skills       All technical skills
@@ -62,22 +63,42 @@ const commands = {
   github       Open GitHub profile
   linkedin     Open LinkedIn profile
   email        Send email
+  download     Download resume
   
 🎨 TERMINAL COMMANDS
   neofetch     System information
   cowsay       Wise cow with wisdom
   banner       ASCII art banner
   clear        Clear terminal
+  history      Show command history
+  date         Display current date/time
   
 🎮 FUN COMMANDS
   joke         Cybersecurity joke
   quote        Security quote
   hack         Matrix animation
+  matrix       Full matrix effect
+  fortune      Random fortune cookie
+  lolcat       Rainbow text
+  ascii        Random ASCII art
+  weather      Show weather
+  coffee       Get virtual coffee
+  
+🎯 MINI GAMES
+  rps          Rock Paper Scissors (rps rock/paper/scissors)
+  quiz         Security quiz (quiz 1/2/3 to answer)
+  
+🎵 EFFECTS
+  glitch       Glitch effect
+  party        Party mode toggle
+  
+🔍 SECRET
+  secret       Find hidden commands
   
 ❌ EXIT
-  exit         Close terminal (type twice)
+  exit         Try to exit (good luck!)
 
-💡 TIP: Use arrow keys for command history`,
+💡 TIP: Use arrow keys for history | Tab for autocomplete`,
 
   about: () => `╔════════════════════════════════════════╗
 ║           ABOUT ME                     ║
@@ -315,6 +336,8 @@ ${profileData.certs.map((c, i) => `📜 [${i + 1}] ${c}`).join('\n\n')}`,
       "A SQL query walks into a bar...\n'Can I JOIN you?' 😄",
       "How many programmers does it take to change a light bulb?\nNone. It's a hardware problem. 💡",
       "Why did the hacker break up?\nToo many trust issues. 🔐",
+      "What's a hacker's favorite season?\nPhishing season! 🎣",
+      "Why don't hackers ever get lost?\nThey always find a backdoor! 🚪"
     ];
     return jokes[Math.floor(Math.random() * jokes.length)];
   },
@@ -325,6 +348,8 @@ ${profileData.certs.map((c, i) => `📜 [${i + 1}] ${c}`).join('\n\n')}`,
       '"Security is not a product, but a process." - Bruce Schneier',
       '"Hackers are breaking systems for profit." - Anonymous',
       '"In God we trust. All others we monitor." - NSA',
+      '"Privacy is not something you can just have; it\'s something you must protect." - Anonymous',
+      '"The best way to predict the future is to invent it." - Alan Kay'
     ];
     return `💭 ${quotes[Math.floor(Math.random() * quotes.length)]}`;
   },
@@ -338,6 +363,297 @@ MAINFRAME BREACHED
 
 Just kidding! This is a portfolio 😄
 Type 'help' for real commands.`,
+
+  matrix: () => `MATRIX_ACTIVATED
+    
+01001000 01100101 01101100 01101100 01101111
+ハッカー サイバーセキュリティ
+01010111 01101111 01110010 01101100 01100100
+
+Wake up, Neo... The Matrix has you...
+Follow the white rabbit. 🐰
+
+Type 'clear' to exit the matrix.`,
+
+  stats: () => {
+    const uptime = Math.floor((Date.now() - window.sessionStart) / 1000);
+    const mins = Math.floor(uptime / 60);
+    const secs = uptime % 60;
+    return `╔════════════════════════════════════════╗
+║         SESSION STATISTICS             ║
+╚════════════════════════════════════════╝
+
+⏱️  Session Time: ${mins}m ${secs}s
+📊 Commands Run: ${window.commandCount || 0}
+🎯 Achievements: ${window.achievements?.length || 0}/10
+💯 Skill Level: ${window.commandCount > 50 ? "Elite Hacker" : window.commandCount > 20 ? "Advanced User" : window.commandCount > 5 ? "Intermediate" : "Newbie"}
+
+Keep exploring! Type 'secret' for hidden features.`;
+  },
+
+  history: () => {
+    const h = window.commandHistory || [];
+    if (h.length === 0) return "No command history yet. Start typing!";
+    return `╔════════════════════════════════════════╗
+║         COMMAND HISTORY                ║
+╚════════════════════════════════════════╝
+
+${h.slice(-10).map((c, i) => `${h.length - 10 + i + 1}. ${c}`).join('\n')}
+
+Total commands: ${h.length}`;
+  },
+
+  date: () => {
+    const now = new Date();
+    return `╔════════════════════════════════════════╗
+║         SYSTEM TIME                    ║
+╚════════════════════════════════════════╝
+
+📅 Date: ${now.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}
+⏰ Time: ${now.toLocaleTimeString('en-US')}
+🌍 Timezone: ${Intl.DateTimeFormat().resolvedOptions().timeZone}
+
+"Time is the most valuable thing a man can spend." - Theophrastus`;
+  },
+
+  fortune: () => {
+    const fortunes = [
+      "🔮 You will discover a critical vulnerability today... in your coffee brewing technique.",
+      "🔮 A great opportunity awaits... after you patch those 47 security updates.",
+      "🔮 Your next penetration test will be successful... but you'll forget to screenshot the proof.",
+      "🔮 You will become rich and famous... in your GitHub contribution graph.",
+      "🔮 Love is in the air... but so are malware packets. Stay vigilant!",
+      "🔮 Today you will learn something new... probably from Stack Overflow.",
+      "🔮 Your code will compile on the first try... said no developer ever.",
+      "🔮 A bug you thought was fixed will return... with friends.",
+    ];
+    return fortunes[Math.floor(Math.random() * fortunes.length)];
+  },
+
+  lolcat: () => `🌈 RAINBOW MODE ${window.rainbowMode ? 'DISABLED' : 'ACTIVATED'} 🌈
+    
+${window.rainbowMode ? "Colors restored to normal hacker green." : "Your terminal is now 20% more fabulous!"}`,
+
+  ascii: () => {
+    const arts = [
+      `    /\\_/\\  
+   ( o.o ) 
+    > ^ <
+   /|   |\\
+  (_|   |_)
+  
+  Script Kitty`,
+      `    .---.
+   /     \\
+   \\.@-@./
+   /\`\\_/\`\\
+  //  _  \\\\
+ | \\     )|_
+/\`\\_\`>  <_/ \\
+\\__/'---'\\__/
+
+Cyber Cat`,
+      `  ___
+ {o,o}
+ |)__)
+ -"-"-
+ 
+ Wise Owl`,
+      `   ^  ^
+  (◕‿◕)
+   ︶︶
+   
+Happy Face`,
+    ];
+    return arts[Math.floor(Math.random() * arts.length)];
+  },
+
+  weather: () => `☀️ WEATHER REPORT ☀️
+    
+Location: ${profileData.location}
+Temperature: 72°F / 22°C
+Condition: Perfect for coding
+Humidity: 60%
+Wind: 5 mph
+
+⚠️  Alert: High probability of coding sessions
+💻 Recommended: Indoor hacking activities
+
+(Note: This is a simulated weather report 😄)`,
+
+  coffee: () => {
+    const coffees = [
+      `      )  (
+     (   ) )
+      ) ( (
+    _______)_
+ .-'---------|  
+( C|/\\/\\/\\/\\/|
+ '-./\\/\\/\\/\\/|
+   '_________'
+    '-------'
+
+☕ Here's your virtual coffee!
+Caffeine level: MAXIMUM
+Type: Espresso
+Status: ☑ Debugging fuel acquired`,
+      `    (  )   (   )  )
+     ) (   )  (  (
+     ( )  (    ) )
+     _____________
+    <_____________> ___
+    |             |/ _ \\
+    |               | | |
+    |               |_| |
+ ___|             |\\___/
+/    \\___________/    \\
+\\_____________________/
+
+☕ Coffee break activated!
+Achievement unlocked: Caffeinated Coder`,
+    ];
+    return coffees[Math.floor(Math.random() * coffees.length)];
+  },
+
+  rps: () => `🎮 ROCK PAPER SCISSORS 🎮
+
+Type: rps rock, rps paper, or rps scissors
+Let's see if you can beat the AI!
+
+⭐ Fun fact: Even AI needs luck sometimes!`,
+
+  quiz: () => {
+    const questions = [
+      {
+        q: "What does XSS stand for?",
+        opts: ["1) Cross-Site Scripting", "2) X-Ray Security System", "3) eXtreme Security Standard"],
+        answer: 1
+      },
+      {
+        q: "Which port is used for HTTPS?",
+        opts: ["1) 80", "2) 443", "3) 8080"],
+        answer: 2
+      },
+      {
+        q: "What is a zero-day vulnerability?",
+        opts: ["1) A bug found on day 0", "2) Unknown vulnerability to vendor", "3) A vulnerability that takes 0 days to exploit"],
+        answer: 2
+      }
+    ];
+    const q = questions[Math.floor(Math.random() * questions.length)];
+    window.currentQuiz = q;
+    return `🎯 SECURITY QUIZ 🎯
+
+${q.q}
+
+${q.opts.join('\n')}
+
+Type: quiz 1, quiz 2, or quiz 3 to answer!`;
+  },
+
+  glitch: () => `G̴̢̛̲͉̈́L̵̰̈́̕I̷͓͌T̴̰̃C̴̣̈́H̷̰̎ ̶̧̛M̶̱̆O̸̧̍D̸͙͝E̴̬̿ ̶̣̈A̸̰͝C̶̝͐T̸͓̋I̷͙͘V̶̰̌A̷̧͝T̸̰̔Ė̶͜D̶̯̾
+
+S̶y̷s̶t̸e̵m̴ ̶c̸o̴r̴r̷u̸p̷t̶i̶o̸n̷.̸.̴.̸
+R̴̢̀ê̴͜ḇ̴̾o̵̰̍o̸̧͝t̷̰̕i̷̺͌ṇ̴̾g̶̣̓.̵͙̏.̴̰̈́.̴̧̎
+
+[OK] System recovered
+[OK] All data intact
+[INFO] Just kidding, everything is fine! 😄`,
+
+  secret: () => `🔐 HIDDEN COMMANDS DISCOVERED! 🔐
+
+Congratulations, curious hacker! You found the secret menu:
+
+🎨 sudo       Try it... if you dare
+🎯 level      Check your hacker level
+🐉 dragon     Summon ASCII dragon
+
+Type any of these to unlock new experiences!`,
+
+  sudo: () => `[sudo] password for anantsec: 
+
+⚠️  PERMISSION DENIED ⚠️
+
+Nice try! But even root can't give you more powers here 😄
+
+"With great power comes great responsibility" - Uncle Ben
+
+💡 You already have all the access you need!`,
+
+  download: () => {
+    return `📥 DOWNLOADING RESUME...
+
+[████████████████████] 100%
+
+✅ Resume downloaded successfully!
+
+💼 File: Anant_Kumar_Pandey_Resume.pdf
+📊 Size: 2.4 MB
+🔐 Secure: ✓
+
+(Simulated download - In production, this would download the actual file)`;
+  },
+
+  level: () => {
+    const count = window.commandCount || 0;
+    let level, title, next;
+    if (count < 5) { level = 1; title = "Script Kiddie"; next = 5; }
+    else if (count < 10) { level = 2; title = "Junior Pentester"; next = 10; }
+    else if (count < 20) { level = 3; title = "Security Analyst"; next = 20; }
+    else if (count < 50) { level = 4; title = "Senior Researcher"; next = 50; }
+    else if (count < 100) { level = 5; title = "Elite Hacker"; next = 100; }
+    else { level = 6; title = "Cyber Legend"; next = "MAX"; }
+    
+    const progress = next === "MAX" ? 100 : Math.floor((count / next) * 100);
+    const bars = "█".repeat(Math.floor(progress / 5)) + "░".repeat(20 - Math.floor(progress / 5));
+    
+    return `╔════════════════════════════════════════╗
+║         HACKER LEVEL SYSTEM            ║
+╚════════════════════════════════════════╝
+
+👤 Current Level: ${level}
+🏆 Title: ${title}
+📊 Commands: ${count}${next !== "MAX" ? `/${next}` : " (MAX)"}
+
+Progress: [${bars}] ${progress}%
+
+${next !== "MAX" ? `🎯 Next Level: ${next - count} commands to go!` : "🎉 MAX LEVEL ACHIEVED! You're a legend!"}`;
+  },
+
+  dragon: () => `
+                           ______________
+                      ,===:'.,            \`-._
+                           \`:.  \`---.__         \`-._
+                             \`:.     \`-.-\`\`         \`.
+                                \\.        \`  ,       \\
+                                 \\       ,\` \\  '~-._/
+                                  \\        /            \\
+                                   \\      (              \\
+                                    \\     (               \\
+                                     \\    (                \\
+                                      \\   (                 \\
+                                       \\  (                  \\
+                                        \\ (                   \\
+                                         \\(                    \\
+                                          \\                     \\
+                                           \\                     \\
+                                            \\                     \\
+
+🐉 The Cyber Dragon has been summoned!
+Ancient wisdom: "The best defense is a good offense... and regular backups."`,
+
+  party: () => {
+    window.partyMode = !window.partyMode;
+    return `🎉🎊🎈 PARTY MODE ${window.partyMode ? 'ACTIVATED' : 'DEACTIVATED'} 🎈🎊🎉
+
+${window.partyMode ? `
+♪┏(・o･)┛♪┗ ( ･o･) ┓♪
+
+🎵 Let's celebrate cybersecurity! 🎵
+🎪 Everything is more fun now!
+🌟 Type commands and see the magic!
+` : "Party's over... back to serious hacking! 💼"}`;
+  },
 };
 
 function Badge() {
@@ -444,7 +760,7 @@ function Band({ maxSpeed = 50, minSpeed = 10 }) {
   );
 }
 
-function TypewriterText({ text, speed = 1, onComplete }) {
+function TypewriterText({ text, speed = 15, onComplete }) {
   const [displayText, setDisplayText] = useState("");
   const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -465,7 +781,7 @@ function TypewriterText({ text, speed = 1, onComplete }) {
 
 function KaliTerm() {
   const [hist, setHist] = useState([
-    { type: "sys", txt: "┌──(anantsec㉿kali)-[~]\n└─$ Welcome to anantsec terminal", animated: false },
+    { type: "sys", txt: "╭──(anantsec㉿kali)-[~] $ Welcome to anantsec terminal", animated: false },
     { type: "sys", txt: 'Type "help" or "neofetch" for info', animated: false },
   ]);
   const [inp, setInp] = useState("");
@@ -473,23 +789,111 @@ function KaliTerm() {
   const [isTyping, setIsTyping] = useState(false);
   const [cmdHistory, setCmdHistory] = useState([]);
   const [historyIndex, setHistoryIndex] = useState(-1);
+  const [suggestions, setSuggestions] = useState([]);
+  const [selectedSuggestion, setSelectedSuggestion] = useState(0);
+  const [rainbowMode, setRainbowMode] = useState(false);
+  const [partyMode, setPartyMode] = useState(false);
   const endRef = useRef(null);
   const inputRef = useRef(null);
+
+  useEffect(() => {
+    if (!window.sessionStart) window.sessionStart = Date.now();
+    if (!window.commandCount) window.commandCount = 0;
+    if (!window.commandHistory) window.commandHistory = [];
+    if (!window.achievements) window.achievements = [];
+  }, []);
+
+  useEffect(() => {
+    window.rainbowMode = rainbowMode;
+    window.partyMode = partyMode;
+  }, [rainbowMode, partyMode]);
 
   useEffect(() => {
     endRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [hist]);
 
+  useEffect(() => {
+    if (inp) {
+      const allCommands = Object.keys(commands);
+      const matches = allCommands.filter(cmd => cmd.startsWith(inp.toLowerCase()));
+      setSuggestions(matches);
+      setSelectedSuggestion(0);
+    } else {
+      setSuggestions([]);
+    }
+  }, [inp]);
+
+  const getRandomColor = () => {
+    const colors = ['#ff6b6b', '#6dd4ff', '#51cf66', '#ffd43b', '#ff8787', '#74c0fc', '#b197fc'];
+    return colors[Math.floor(Math.random() * colors.length)];
+  };
+
   const run = (raw) => {
     const cmd = raw.trim();
     if (!cmd) return;
     
-    const key = cmd.toLowerCase();
-    const newH = [...hist, { type: "inp", txt: `┌──(anantsec㉿kali)-[~]\n└─$ ${cmd}`, animated: false }];
+    window.commandCount = (window.commandCount || 0) + 1;
+    window.commandHistory = window.commandHistory || [];
+    window.commandHistory.push(cmd);
+    
+    const parts = cmd.split(' ');
+    const key = parts[0].toLowerCase();
+    const arg = parts[1];
+    
+    const newH = [...hist, { 
+      type: "inp", 
+      txt: `╭──(anantsec㉿kali)-[~] $ ${cmd}`, 
+      animated: false,
+      color: partyMode ? getRandomColor() : "#6dd4ff"
+    }];
 
     setCmdHistory(prev => [...prev, cmd]);
     setHistoryIndex(-1);
+    setSuggestions([]);
 
+    // RPS handling
+    if (key === "rps" && arg) {
+      const choices = ["rock", "paper", "scissors"];
+      if (!choices.includes(arg)) {
+        newH.push({ type: "err", txt: "Invalid choice! Use: rock, paper, or scissors", animated: true });
+      } else {
+        const ai = choices[Math.floor(Math.random() * 3)];
+        let result;
+        if (arg === ai) result = "It's a tie! 🤝";
+        else if (
+          (arg === "rock" && ai === "scissors") ||
+          (arg === "paper" && ai === "rock") ||
+          (arg === "scissors" && ai === "paper")
+        ) result = "🎉 You win! Great choice!";
+        else result = "🤖 AI wins! Better luck next time!";
+        
+        newH.push({ type: "out", txt: `You chose: ${arg}\nAI chose: ${ai}\n\n${result}`, animated: true });
+      }
+      setHist(newH);
+      setInp("");
+      return;
+    }
+
+    // Quiz answer handler
+    if (key === "quiz" && arg) {
+      const q = window.currentQuiz;
+      if (!q) {
+        newH.push({ type: "err", txt: "No active quiz! Type 'quiz' first.", animated: true });
+      } else {
+        const ans = parseInt(arg);
+        if (ans === q.answer) {
+          newH.push({ type: "out", txt: "✅ CORRECT! You're a security genius! 🎉\n\nType 'quiz' for another question!", animated: true });
+          window.commandCount += 5; // Bonus!
+        } else {
+          newH.push({ type: "out", txt: `❌ Wrong! The correct answer was option ${q.answer}.\n\nType 'quiz' to try another!`, animated: true });
+        }
+      }
+      setHist(newH);
+      setInp("");
+      return;
+    }
+
+    // Exit flow (double-confirm)
     if (key === "exit") {
       if (exitCount === 0) {
         newH.push({
@@ -502,29 +906,28 @@ function KaliTerm() {
         setInp("");
         return;
       } else {
-        newH.push({ 
-          type: "out", 
-          txt: "👋 Goodbye! Redirecting...", 
-          animated: true 
-        });
+        newH.push({ type: "out", txt: "👋 Goodbye! Redirecting...", animated: true });
         setHist(newH);
         setTimeout(() => {
           window.location.href = "https://anantsec.netlify.app";
-        }, 2000);
+        }, 1400);
         return;
       }
     }
 
     if (exitCount > 0) setExitCount(0);
 
+    if (key === "lolcat") setRainbowMode(!rainbowMode);
+    if (key === "party") setPartyMode(!partyMode);
+
     if (commands[key]) {
       const out = commands[key]();
       if (out === "CLEAR") {
-        setHist([{ type: "sys", txt: "┌──(anantsec㉿kali)-[~]\n└─$ Terminal cleared", animated: false }]);
+        setHist([{ type: "sys", txt: "╭──(anantsec㉿kali)-[~] $ Terminal cleared", animated: false }]);
         setInp("");
         return;
       }
-      newH.push({ type: "out", txt: out, animated: true });
+      newH.push({ type: "out", txt: out, animated: true, color: rainbowMode ? getRandomColor() : undefined });
       setIsTyping(true);
     } else {
       newH.push({ type: "err", txt: `bash: ${cmd}: command not found\n\n💡 Type 'help' for available commands`, animated: true });
@@ -538,17 +941,34 @@ function KaliTerm() {
   const handleKeyDown = (e) => {
     if (e.key === "Enter") {
       e.preventDefault();
-      if (!isTyping) run(inp);
+      if (!isTyping) {
+        if (suggestions.length > 0 && selectedSuggestion >= 0) {
+          setInp(suggestions[selectedSuggestion]);
+          setSuggestions([]);
+        } else {
+          run(inp);
+        }
+      }
+    } else if (e.key === "Tab") {
+      e.preventDefault();
+      if (suggestions.length > 0) {
+        setInp(suggestions[selectedSuggestion]);
+        setSuggestions([]);
+      }
     } else if (e.key === "ArrowUp") {
       e.preventDefault();
-      if (cmdHistory.length > 0) {
+      if (suggestions.length > 0) {
+        setSelectedSuggestion(prev => prev > 0 ? prev - 1 : suggestions.length - 1);
+      } else if (cmdHistory.length > 0) {
         const newIndex = historyIndex === -1 ? cmdHistory.length - 1 : Math.max(0, historyIndex - 1);
         setHistoryIndex(newIndex);
         setInp(cmdHistory[newIndex]);
       }
     } else if (e.key === "ArrowDown") {
       e.preventDefault();
-      if (historyIndex >= 0) {
+      if (suggestions.length > 0) {
+        setSelectedSuggestion(prev => prev < suggestions.length - 1 ? prev + 1 : 0);
+      } else if (historyIndex >= 0) {
         const newIndex = historyIndex + 1;
         if (newIndex >= cmdHistory.length) {
           setHistoryIndex(-1);
@@ -561,41 +981,50 @@ function KaliTerm() {
     }
   };
 
-  const quickCommands = ["help", "neofetch", "about", "skills", "projects", "contact", "cowsay"];
+  const quickCommands = ["help", "neofetch", "about", "skills", "projects", "contact", "stats", "secret"];
 
   return (
     <div style={{ 
-      backgroundImage: "linear-gradient(rgba(5, 8, 12, 0.96), rgba(8, 10, 14, 0.98)), url(/assets/kali-dragon.png)", 
-      backgroundSize: "cover", 
-      backgroundPosition: "center", 
-      backgroundRepeat: "no-repeat", 
-      backgroundBlendMode: "overlay", 
-      borderRadius: "8px", 
-      overflow: "hidden", 
-      border: "1px solid #1a1a1a", 
-      boxShadow: "0 12px 48px rgba(0,0,0,0.9)", 
-      fontFamily: '"Fira Code", monospace', 
-      color: "#d4d4d4", 
-      height: "100%", 
-      display: "flex", 
-      flexDirection: "column" 
+      /* keep whole KaliTerm container same as earlier if you had one,
+         here we don't change the outer header / borders — only the input style */
+      borderRadius: "12px",
+      overflow: "hidden",
+      border: partyMode ? "2px solid #ff6b6b" : "1px solid #1a1a1a",
+      boxShadow: partyMode
+        ? "0 0 30px rgba(255,107,107,0.5), 0 12px 48px rgba(0,0,0,0.9)"
+        : "0 12px 48px rgba(0,0,0,0.9)",
+      fontFamily: '"Fira Code", monospace',
+      color: "#d4d4d4",
+      height: "100%",
+      display: "flex",
+      flexDirection: "column",
+      animation: partyMode ? "party-pulse 2s infinite" : "none"
     }}>
       <div style={{ 
-        background: "linear-gradient(180deg, #1a1a1a, #0d0d0d)", 
-        padding: "8px 12px", 
-        borderBottom: "1px solid #222", 
-        display: "flex", 
-        alignItems: "center", 
-        gap: "8px",
-        flexWrap: "wrap"
+        background: partyMode ? "linear-gradient(90deg, #ff6b6b, #6dd4ff, #51cf66, #ffd43b)" : "linear-gradient(180deg, #1a1a1a, #0d0d0d)",
+        padding: "10px 16px",
+        borderBottom: "1px solid #222",
+        display: "flex",
+        alignItems: "center",
+        gap: "12px",
+        flexWrap: "wrap",
+        backgroundSize: partyMode ? "300% 100%" : "100% 100%",
+        animation: partyMode ? "gradient-shift 3s ease infinite" : "none"
       }}>
         <div style={{ display: "flex", gap: "6px" }}>
-          <div style={{ width: "12px", height: "12px", borderRadius: "50%", background: "#ff5f56" }} />
-          <div style={{ width: "12px", height: "12px", borderRadius: "50%", background: "#ffbd2e" }} />
-          <div style={{ width: "12px", height: "12px", borderRadius: "50%", background: "#27c93f" }} />
+          <div style={{ width: "12px", height: "12px", borderRadius: "50%", background: "#ff5f56", boxShadow: "0 0 10px #ff5f56" }} />
+          <div style={{ width: "12px", height: "12px", borderRadius: "50%", background: "#ffbd2e", boxShadow: "0 0 10px #ffbd2e" }} />
+          <div style={{ width: "12px", height: "12px", borderRadius: "50%", background: "#27c93f", boxShadow: "0 0 10px #27c93f" }} />
         </div>
-        <TerminalIcon size={14} color="#6dd4ff" />
-        <span style={{ fontSize: "13px", fontWeight: 700, color: "#6dd4ff" }}>anantsec@kali: ~</span>
+        <TerminalIcon size={16} color={partyMode ? "#fff" : "#6dd4ff"} />
+        <span style={{ fontSize: "14px", fontWeight: 700, color: partyMode ? "#fff" : "#6dd4ff", textShadow: partyMode ? "0 0 10px #fff" : "none" }}>
+          anantsec@kali: ~
+        </span>
+        <span style={{ marginLeft: "auto", fontSize: "11px", color: partyMode ? "#fff" : "#999", display: "flex", gap: "8px", alignItems: "center" }}>
+          {partyMode && "🎉"}
+          {rainbowMode && "🌈"}
+          Commands: {window.commandCount || 0}
+        </span>
       </div>
 
       <div 
@@ -606,22 +1035,36 @@ function KaliTerm() {
           overflow: "auto", 
           fontSize: "13px", 
           lineHeight: "1.6", 
-          whiteSpace: "pre-wrap", 
-          background: "rgba(5, 8, 12, 0.7)",
-          wordBreak: "break-word"
+          whiteSpace: "pre-wrap",
+
+          /* Background image */
+          backgroundImage: "url('/assets/kali-dragon.png')",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+
+          /* Glassy effect */
+          backgroundColor: "rgba(5, 8, 12, 0.8)",     // lighter, more transparent
+          backdropFilter: "blur(6px)",                 // GLASS EFFECT
+          WebkitBackdropFilter: "blur(6px)",           // Safari support
+
+          border: "1px solid rgba(255, 255, 255, 0.08)", // subtle glass border
+          borderRadius: "8px",
+
+          backgroundBlendMode: "overlay",
+
+          wordBreak: "break-word",
+          position: "relative"
         }}
         onClick={() => inputRef.current?.focus()}
       >
+
         {hist.map((e, i) => {
-          const col = e.type === "inp" ? "#6dd4ff" : e.type === "err" ? "#ff6b6b" : e.type === "out" ? "#e0e0e0" : "#9ed6ff";
+          const col = e.color || (e.type === "inp" ? "#6dd4ff" : e.type === "err" ? "#ff6b6b" : e.type === "out" ? "#e0e0e0" : "#9ed6ff");
           return (
-            <div key={i} style={{ color: col, marginBottom: "12px" }}>
+            <div key={i} style={{ color: rainbowMode && e.type === "out" ? getRandomColor() : col, marginBottom: "12px", animation: partyMode && e.type === "out" ? "bounce 0.5s" : "none" }}>
               {e.animated && i === hist.length - 1 ? (
-                <TypewriterText 
-                  text={e.txt} 
-                  speed={1} 
-                  onComplete={() => setIsTyping(false)}
-                />
+                <TypewriterText text={e.txt} speed={1} onComplete={() => setIsTyping(false)} />
               ) : (
                 e.txt
               )}
@@ -629,72 +1072,119 @@ function KaliTerm() {
           );
         })}
 
-        <div style={{ 
-          display: "flex", 
-          gap: "8px", 
-          alignItems: "flex-start", 
-          marginTop: "16px",
-          flexWrap: "wrap"
-        }}>
-          <span style={{ 
-            color: "#6dd4ff", 
-            fontWeight: 700, 
-            whiteSpace: "pre",
-            minWidth: "fit-content"
-          }}>
-            ┌──(anantsec㉿kali)-[~]{"\n"}└─$
-          </span>
-          <input
-            ref={inputRef}
-            value={inp}
-            onChange={(e) => setInp(e.target.value)}
-            onKeyDown={handleKeyDown}
-            placeholder="Type command..."
-            autoComplete="off"
-            spellCheck="false"
-            disabled={isTyping}
-            style={{ 
-              flex: 1, 
-              background: "transparent", 
-              border: "none", 
-              outline: "none", 
-              color: "#d4d4d4", 
-              fontFamily: "inherit", 
-              fontSize: "inherit", 
-              padding: "4px", 
-              caretColor: "#6dd4ff",
-              minWidth: "200px"
-            }}
-          />
+        <div style={{ position: "relative" }}>
+          <div style={{ display: "flex", gap: "8px", alignItems: "center", marginTop: "16px", flexWrap: "wrap" }}>
+            <span style={{ color: "#6dd4ff", fontWeight: 700, whiteSpace: "pre", minWidth: "fit-content", textShadow: partyMode ? "0 0 5px #6dd4ff" : "none" }}>
+              ╭──(anantsec㉿kali)-[~] $
+            </span>
+
+            {/* -- SIMPLE INLINE INPUT (no card / no rounded box) -- */}
+            <input
+              ref={inputRef}
+              value={inp}
+              onChange={(e) => setInp(e.target.value)}
+              onKeyDown={handleKeyDown}
+              placeholder="Type command..."
+              autoComplete="off"
+              spellCheck="false"
+              disabled={isTyping}
+              style={{
+                flex: 1,
+                background: "transparent",    // no card background
+                border: "none",               // no border
+                outline: "none",
+                color: "#d4d4d4",
+                fontFamily: "inherit",
+                fontSize: "inherit",
+                padding: 0,
+                margin: 0,
+                caretColor: "#6dd4ff",
+                minWidth: "60px",             // ensure small width on empty input so cursor appears
+                // keep it inline and flush with prompt like real terminal
+              }}
+            />
+          </div>
+
+          {suggestions.length > 0 && (
+            <div style={{
+              position: "absolute",
+              top: "100%",
+              left: "80px",
+              background: "rgba(10, 15, 20, 0.98)",
+              border: "1px solid rgba(109, 212, 255, 0.3)",
+              borderRadius: "6px",
+              marginTop: "4px",
+              padding: "4px",
+              minWidth: "200px",
+              zIndex: 1000,
+              boxShadow: "0 4px 12px rgba(0,0,0,0.5)"
+            }}>
+              {suggestions.map((sug, i) => (
+                <div
+                  key={sug}
+                  onClick={() => {
+                    setInp(sug);
+                    setSuggestions([]);
+                  }}
+                  style={{
+                    padding: "6px 12px",
+                    cursor: "pointer",
+                    background: i === selectedSuggestion ? "rgba(109, 212, 255, 0.2)" : "transparent",
+                    color: i === selectedSuggestion ? "#6dd4ff" : "#999",
+                    borderRadius: "4px",
+                    fontSize: "12px",
+                    transition: "all 0.2s"
+                  }}
+                  onMouseEnter={(e) => {
+                    e.target.style.background = "rgba(109, 212, 255, 0.2)";
+                    e.target.style.color = "#6dd4ff";
+                  }}
+                  onMouseLeave={(e) => {
+                    if (i !== selectedSuggestion) {
+                      e.target.style.background = "transparent";
+                      e.target.style.color = "#999";
+                    }
+                  }}
+                >
+                  {sug}
+                </div>
+              ))}
+            </div>
+          )}
         </div>
 
-        <div style={{ 
-          display: "flex", 
-          gap: "8px", 
-          flexWrap: "wrap", 
-          marginTop: "16px", 
-          paddingTop: "12px", 
-          borderTop: "1px dashed #333" 
-        }}>
+        <div style={{ display: "flex", gap: "6px", flexWrap: "wrap", marginTop: "16px", paddingTop: "12px", borderTop: "1px dashed #333" }}>
           {quickCommands.map((s) => (
             <button
               key={s}
               onClick={() => !isTyping && run(s)}
               disabled={isTyping}
               style={{ 
-                background: "rgba(109, 212, 255, 0.1)", 
-                border: "1px solid rgba(109, 212, 255, 0.3)", 
-                color: "#6dd4ff", 
-                padding: "6px 12px", 
-                borderRadius: "4px", 
-                cursor: isTyping ? "not-allowed" : "pointer", 
-                fontSize: "11px", 
-                fontFamily: "inherit", 
-                transition: "all 0.2s",
-                opacity: isTyping ? 0.5 : 1
+                background: partyMode ? "linear-gradient(45deg, #ff6b6b, #6dd4ff)" : "rgba(109, 212, 255, 0.1)",
+                border: "1px solid rgba(109, 212, 255, 0.3)",
+                color: partyMode ? "#fff" : "#6dd4ff",
+                padding: "6px 12px",
+                borderRadius: "6px",
+                cursor: isTyping ? "not-allowed" : "pointer",
+                fontSize: "11px",
+                fontFamily: "inherit",
+                transition: "all 0.3s",
+                opacity: isTyping ? 0.5 : 1,
+                fontWeight: 500,
+                boxShadow: partyMode ? "0 0 10px rgba(109, 212, 255, 0.5)" : "none"
               }}
-              onMouseEnter={(e) => !isTyping && (e.target.style.background = "rgba(109, 212, 255, 0.2)")}
-              onMouseLeave={(e) => (e.target.style.background = "rgba(109, 212, 255, 0.1)")}
+              onMouseEnter={(e) => {
+                if (!isTyping) {
+                  e.target.style.background = partyMode ? "linear-gradient(45deg, #6dd4ff, #ff6b6b)" : "rgba(109, 212, 255, 0.25)";
+                  e.target.style.transform = "translateY(-2px)";
+                  e.target.style.boxShadow = "0 4px 12px rgba(109, 212, 255, 0.4)";
+                }
+              }}
+              onMouseLeave={(e) => {
+                e.target.style.background = partyMode ? "linear-gradient(45deg, #ff6b6b, #6dd4ff)" : "rgba(109, 212, 255, 0.1)";
+                e.target.style.transform = "translateY(0)";
+                e.target.style.boxShadow = partyMode ? "0 0 10px rgba(109, 212, 255, 0.5)" : "none";
+              }}
             >
               {s}
             </button>
@@ -706,19 +1196,22 @@ function KaliTerm() {
   );
 }
 
+
+
 export default function App() {
   return (
-    <div style={{ height: "100vh", width: "100%", background: "#050505", display: "grid", gridTemplateColumns: "42% 58%", gap: 0, overflow: "hidden" }} className="main-grid">
+    <div style={{ height: "100vh", width: "100%", background: "linear-gradient(135deg, #050505 0%, #0a0a0f 50%, #050508 100%)", display: "grid", gridTemplateColumns: "42% 58%", gap: 0, overflow: "hidden" }} className="main-grid">
       <div className="badge-panel" style={{ 
         display: "flex", 
         alignItems: "center", 
         justifyContent: "center", 
-        background: "linear-gradient(180deg, rgba(6,8,10,1), rgba(4,6,8,1))", 
+        background: "transparent", 
         padding: 0, 
         margin: 0, 
         overflow: "hidden", 
         width: "100%", 
-        height: "100%" 
+        height: "100%",
+        position: "relative"
       }}>
         <div style={{ width: "100%", height: "100%" }}>
           <Badge />
@@ -726,11 +1219,12 @@ export default function App() {
       </div>
 
       <div className="right-panel" style={{ 
-        padding: "28px", 
+        padding: "32px", 
         display: "flex", 
         flexDirection: "column", 
         height: "100vh", 
-        overflow: "hidden" 
+        overflow: "hidden",
+        position: "relative"
       }}>
         <KaliTerm />
       </div>
@@ -768,6 +1262,51 @@ export default function App() {
         
         ::-webkit-scrollbar-thumb:hover {
           background: rgba(109,212,255,0.5);
+        }
+
+        @keyframes party-pulse {
+          0%, 100% { 
+            box-shadow: 0 0 20px rgba(255,107,107,0.5), 0 12px 48px rgba(0,0,0,0.9); 
+          }
+          25% { 
+            box-shadow: 0 0 30px rgba(109,212,255,0.5), 0 12px 48px rgba(0,0,0,0.9); 
+          }
+          50% { 
+            box-shadow: 0 0 20px rgba(81,207,102,0.5), 0 12px 48px rgba(0,0,0,0.9); 
+          }
+          75% { 
+            box-shadow: 0 0 30px rgba(255,212,59,0.5), 0 12px 48px rgba(0,0,0,0.9); 
+          }
+        }
+
+        @keyframes gradient-shift {
+          0% { background-position: 0% 50%; }
+          50% { background-position: 100% 50%; }
+          100% { background-position: 0% 50%; }
+        }
+
+        @keyframes bounce {
+          0%, 100% { transform: translateY(0); }
+          50% { transform: translateY(-5px); }
+        }
+
+        @keyframes glow {
+          0%, 100% { text-shadow: 0 0 5px #6dd4ff; }
+          50% { text-shadow: 0 0 20px #6dd4ff, 0 0 30px #6dd4ff; }
+        }
+
+        @keyframes float {
+          0%, 100% { transform: translateY(0px); }
+          50% { transform: translateY(-10px); }
+        }
+
+        @keyframes rainbow {
+          0% { color: #ff6b6b; }
+          20% { color: #6dd4ff; }
+          40% { color: #51cf66; }
+          60% { color: #ffd43b; }
+          80% { color: #ff8787; }
+          100% { color: #ff6b6b; }
         }
         
         /* Tablet Responsiveness */
